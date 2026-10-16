@@ -19,10 +19,10 @@ class EventFactory extends Factory
     public function definition(): array
     {
         return [
-            'name'=>fake()->name(),
+            'name'=>fake()->sentence(),
             'time'=>fake()->dateTime(),
             'address'=>fake()->address(),
-            'trader_id'=>Trader::all()->random()->id,
+            'trader_id'=>Trader::inRandomOrder()->first()?->id ?? Trader::factory()->create(),
         ];
     }
 }

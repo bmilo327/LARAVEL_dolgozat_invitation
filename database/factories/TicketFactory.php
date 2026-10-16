@@ -22,8 +22,8 @@ class TicketFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id'=>User::all()->random()->id,
-            'event_id'=>Event::all()->random()->id,
+            'user_id'=>User::inRandomOrder()->first()?->id ?? User::factory(),
+            'event_id'=>Event::inRandomOrder()->first()?->id ?? Event::factory(),
             'status'=>fake()->word()
         ];
     }

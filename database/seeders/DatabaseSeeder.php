@@ -18,10 +18,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(10)->create();
-        Trader::factory(10)->create();
-        Event::factory(10)->create();
-        Ticket::factory(10)->create();
+        User::factory(5)->create();
+        Trader::factory(5)->create();
+        Event::factory(5)->create();
+        Ticket::factory(5)->create();
 
     /*  User::factory()->create([
             'name' => 'Test User',

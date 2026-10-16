@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -15,11 +16,28 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
         });
+
+        DB::table('users')-> insert([
+            [
+                'name'=>"Mézga Géza",
+                'email'=>"mezgag@gmail.com",
+                'password'=>"mezgagezga1234"
+            ],
+            [
+                'name'=>"Mézga Aladár",
+                'email'=>"mezgaa@gmail.com",
+                'password'=>"mezgaaladar1234"
+            ],
+            [
+                'name'=>"Máris szomszéd",
+                'email'=>"maris111@gmail.com",
+                'password'=>"maris1234"
+            ],
+        ]);
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();
