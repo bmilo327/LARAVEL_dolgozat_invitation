@@ -16,6 +16,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->dateTime('time');
+            $table->string('address');
             $table->foreignId('trader_id')->constrained();
             $table->timestamps();
         });
